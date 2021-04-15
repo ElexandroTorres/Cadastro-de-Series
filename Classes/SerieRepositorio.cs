@@ -14,7 +14,7 @@ namespace CadastroSeries
 
         public void Exclui(int id)
         {
-            throw new NotImplementedException();
+            listaSeries[id].Excluir();
         }
 
         public void Insere(Serie serie)
@@ -29,12 +29,12 @@ namespace CadastroSeries
 
         public int ProximoId()
         {
-            throw new NotImplementedException();
+            return listaSeries.Count;
         }
 
-        public Serie RetornaPorId()
+        public Serie RetornaPorId(int id)
         {
-            throw new NotImplementedException();
+            return listaSeries[id];
         }
     }
 }
