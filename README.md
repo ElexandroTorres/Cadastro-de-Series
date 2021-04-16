@@ -9,4 +9,4 @@ Atraves da tela de cadastro é possivel:
 - Atualizar os dados de uma serie ja existente.
 - Vizualizar as infomações de uma serie especifica.
 
-https://github.com/ElexandroTorres/Cadastro-de-Series/tree/main/ImagensReadme/cadastro.jpg?raw=true
+![alt text](ttps://github.com/ElexandroTorres/Cadastro-de-Series/tree/main/ImagensReadme/cadastro.jpg?raw=true)
