@@ -25,10 +25,11 @@ namespace CadastroSeries
         public override string ToString()
         {
             string retorno = "";
-            retorno += "Genero: " + this.Genero + Environment.NewLine;
             retorno += "Titulo: " + this.Titulo + Environment.NewLine;
+            retorno += "Genero: " + this.Genero + Environment.NewLine;
             retorno += "Descrição: " + this.Decricao + Environment.NewLine;
             retorno += "Ano: " + this.Ano + Environment.NewLine;
+            retorno += "Está disponivel: " + (this.Excluido == true ? "Não" : "Sim") + Environment.NewLine;
 
             return retorno;
         }

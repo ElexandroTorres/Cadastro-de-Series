@@ -10,5 +10,6 @@ namespace CadastroSeries.Interfaces
         void Exclui(int id);
         void Atualiza(int id, T entidade);
         int ProximoId();
+        int SeriesAtivas();
     }
 }
