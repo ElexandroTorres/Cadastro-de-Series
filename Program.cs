@@ -8,6 +8,7 @@ namespace CadastroSeries
         static void Main(string[] args)
         {
             string opcaoUsuario = ObterOpcaoUsuario();
+
             while(opcaoUsuario != "X")
             {
                 switch(opcaoUsuario)
@@ -47,7 +48,10 @@ namespace CadastroSeries
             
             foreach (var serie in lista)
             {
-                Console.WriteLine("ID: {0} -> {1}", serie.RetornaId(), serie.RetornaTitulo());
+                if(!serie.Excluida())
+                {
+                    Console.WriteLine("ID: {0} -> {1}", serie.RetornaId(), serie.RetornaTitulo());
+                }
             }
         }
 
@@ -135,18 +139,14 @@ namespace CadastroSeries
             Console.WriteLine("---------------------------------");
         }
 
-
-
         private static void ExcluiSerie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Digite o Id da Serie que deseja excluir: ");
+            int id = int.Parse(Console.ReadLine());
+
+            repositorio.Exclui(id);
+            Console.WriteLine("Serie Excluida!!!");
         }
-
-
-
-
-
-
 
         private static string ObterOpcaoUsuario()
         {
@@ -169,7 +169,5 @@ namespace CadastroSeries
             return opcaoUsuario;
 
         }
-
-
     }
 }

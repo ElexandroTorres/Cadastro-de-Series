@@ -43,6 +43,11 @@ namespace CadastroSeries
             return this.Id;
         }
 
+        public bool Excluida()
+        {   
+            return this.Excluido;
+        }
+
         public void AlteraTitulo(string novoTitulo)
         {
             this.Titulo = novoTitulo;
@@ -67,6 +72,7 @@ namespace CadastroSeries
         {
             this.Excluido = true;
         }
+
     }
 
     
