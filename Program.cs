@@ -7,8 +7,6 @@ namespace CadastroSeries
         static SerieRepositorio repositorio = new SerieRepositorio();
         static void Main(string[] args)
         {
-            
-
             string opcaoUsuario = ObterOpcaoUsuario();
             while(opcaoUsuario != "X")
             {
@@ -34,7 +32,6 @@ namespace CadastroSeries
                 }
                 opcaoUsuario = ObterOpcaoUsuario();
             }
-            
         }
 
         private static void ListarSeries()
@@ -70,26 +67,82 @@ namespace CadastroSeries
             Console.WriteLine("Digite a Descrição da Serie: ");
             string descricao = Console.ReadLine();
 
-            Serie novaSerie = new Serie(id: repositorio.ProximoId(), (Genero)genero, titulo, descricao, ano);
+            Serie novaSerie = new Serie(repositorio.ProximoId(), (Genero)genero, titulo, descricao, ano);
 
             repositorio.Insere(novaSerie);
 
         }
 
+        private static void AtualizaSerie()
+        {
+            ListarSeries();
+            Console.WriteLine("Digite o Id da Serie que deseja atualizar: ");
+            int id = int.Parse(Console.ReadLine());
+
+            Serie serieEscolhida = repositorio.RetornaPorId(id);
+
+            int opcaoUsuario;
+
+            do
+            {
+                Console.WriteLine("Opções de Atualização: ");
+                Console.WriteLine("1 - Atualizar genero!");
+                Console.WriteLine("2 - Atualizar titulo!");
+                Console.WriteLine("3 - Atualizar ano de lançamento!");
+                Console.WriteLine("4 - Atualizar descrição!");
+                Console.WriteLine("0 - Finalizar atualização!");
+                Console.WriteLine("Digite a opção que deseja atualizar: Digite 0 caso tenha acabado: ");
+                opcaoUsuario = int.Parse(Console.ReadLine());
+
+                switch(opcaoUsuario)
+                {
+                    case 1:
+                        Console.WriteLine("Inserir genero: ");
+                        serieEscolhida.AlteraGenero((Genero)int.Parse(Console.ReadLine()));
+                        break;
+                    case 2:
+                        Console.WriteLine("Inserir titulo: ");
+                        serieEscolhida.AlteraTitulo(Console.ReadLine());
+                        break;
+                    case 3:
+                        Console.WriteLine("Inserir ano: ");
+                        serieEscolhida.AlteraAno(int.Parse(Console.ReadLine()));
+                        break;
+                    case 4:
+                        Console.WriteLine("Inserir descrição: ");
+                        serieEscolhida.AlteraDescricao(Console.ReadLine());
+                        break;
+                    case 0:
+                        Console.WriteLine("Atualização finalizada!!!");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            } while(opcaoUsuario != 0);
+
+        }
+
         private static void InfosSerie()
         {
-            throw new NotImplementedException();
+            ListarSeries();
+            Console.WriteLine("Digite o Id da Serie que deseja ver as informações: ");
+            int id = int.Parse(Console.ReadLine());
+
+            Serie serieEscolhida = repositorio.RetornaPorId(id);
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Informações da serie: ");
+            Console.WriteLine(serieEscolhida);
+            Console.WriteLine("---------------------------------");
         }
+
+
 
         private static void ExcluiSerie()
         {
             throw new NotImplementedException();
         }
 
-        private static void AtualizaSerie()
-        {
-            throw new NotImplementedException();
-        }
+
 
 
 

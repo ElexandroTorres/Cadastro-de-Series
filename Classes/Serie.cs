@@ -29,7 +29,8 @@ namespace CadastroSeries
             retorno += "Titulo: " + this.Titulo + Environment.NewLine;
             retorno += "Descrição: " + this.Decricao + Environment.NewLine;
             retorno += "Ano: " + this.Ano + Environment.NewLine;
-            return base.ToString();
+
+            return retorno;
         }
 
         public string RetornaTitulo()
@@ -40,6 +41,26 @@ namespace CadastroSeries
         public int RetornaId()
         {
             return this.Id;
+        }
+
+        public void AlteraTitulo(string novoTitulo)
+        {
+            this.Titulo = novoTitulo;
+        }
+
+        public void AlteraGenero(Genero novoGenero)
+        {
+            this.Genero = novoGenero;
+        }
+
+        public void AlteraAno(int novoAno)
+        {
+            this.Ano = novoAno;
+        }
+
+        public void AlteraDescricao(string novaDescr)
+        {
+            this.Decricao = novaDescr;
         }
 
         public void Excluir()
